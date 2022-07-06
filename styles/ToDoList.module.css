@@ -1,0 +1,89 @@
+.list {
+  position: absolute;
+}
+.toDoLi {
+  display: inline;
+  color: rgb(12, 170, 243);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.Header {
+  font-size: 16px;
+  color: rgb(255, 187, 0);
+  margin: auto;
+  position: relative;
+  top: -30px;
+  left: 145px;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.Add {
+  color: rgb(245, 241, 9);
+  background-color: firebrick;
+  border: 4px;
+  border-radius: 2px;
+}
+
+.ErrorMessage {
+  color: red;
+  margin-left: 15px;
+}
+
+.InputToDo {
+  position: relative;
+  width: 400px;
+  display: inline;
+  margin-left: 10px;
+}
+
+.DateLi {
+  color: rgb(197, 197, 197);
+  margin-left: 10px;
+  font-size: 11px;
+}
+
+.Li {
+  list-style-type: none;
+}
+
+.spanLiPending {
+  /* background-color: rgb(255, 255, 255); */
+  text-decoration: none;
+}
+
+.spanLiPending:hover {
+  background-color: rgb(53, 53, 53);
+  border: blue;
+  border-radius: 4px;
+  border-width: 1px;
+  cursor: context-menu;
+}
+
+.spanLiCompleted {
+  text-decoration: line-through;
+  text-decoration-color: rgb(71, 252, 0);
+  /* background-color: rgb(255, 255, 255); */
+}
+
+.spanLiCompleted:hover {
+  background-color: rgb(54, 54, 54);
+  border: blue;
+  border-radius: 4px;
+  border-width: 1px;
+  cursor: context-menu;
+}
+
+.DatePickerCursor *:hover {
+  cursor: pointer;
+}
+
+.DatePickerCursor:hover {
+  cursor: pointer;
+}
+
+.DatePickerCursor {
+  display: inline;
+}
