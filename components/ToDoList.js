@@ -1,3 +1,4 @@
+// component for the todo list
 import React from "react";
 import store from "./ToDoStore";
 import { observer } from "mobx-react";
@@ -18,7 +19,6 @@ import {
 
 import { Input } from "antd";
 function ToDoList() {
-  // const { Input } = antd;
   console.log("rendering todolist");
   const [inputToDo, setInputToDo] = useState();
 

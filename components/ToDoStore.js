@@ -1,6 +1,7 @@
 import { makeObservable, action, computed, observable } from "mobx";
 import { nanoid, customAlphabet } from "nanoid";
 
+// mobx store to manage states
 class ToDoStore {
   // toDoList = [];
   // toDoCompleted = 0;
@@ -36,6 +37,7 @@ class ToDoStore {
     });
   }
 
+  // to calculate the total number of completed todos
   get calculateCompletedToDo() {
     this.toDoList.forEach((eachToDo) => {
       if (eachToDo.completed == true) {
@@ -46,6 +48,7 @@ class ToDoStore {
     this.toDoPending = this.toDoList.length - this.toDoCompleted;
   }
 
+  // to add a new todo to the list
   addToDo() {
     const nanoid = customAlphabet("1234567890", 2);
     this.newToDo.id = nanoid();
@@ -66,6 +69,7 @@ class ToDoStore {
     console.log("to do list is ", this.toDoList);
   }
 
+  // function to delete a todo
   deleteToDo(toDoId) {
     console.log("key to be deleted is ", toDoId);
     console.log(this.toDoList.length);
@@ -73,6 +77,7 @@ class ToDoStore {
     console.log(this.toDoList.length);
   }
 
+  // function to manage variables that hide and unhide edit buttons on the page
   editToggle(toDoId, toDoContent) {
     this.newToDo.content = toDoContent;
     console.log("todo is ", toDoId);
@@ -85,30 +90,35 @@ class ToDoStore {
     );
   }
 
+  // to cancel editing and revert back to original content in todo
   cancelEdit() {
     console.log("inside cancel");
     this.editToggleBoolean = false;
     this.idOfToDoToBeEdited = -1;
   }
 
+  // callback function used by datekeeper antd element
   changeDate(date) {
     // console.dir(date);
     // console.log(date.toDateString());
     store.newToDo.date = date.toDateString();
   }
 
+  //to mark a todo as completed
   markAsDone(toDoId) {
     let index = this.toDoList.map((eachToDo) => eachToDo.id).indexOf(toDoId);
 
     store.toDoList[index].status = "Completed";
   }
 
+  // to mark a todo as pending
   markAsPending(toDoId) {
     let index = this.toDoList.map((eachToDo) => eachToDo.id).indexOf(toDoId);
 
     store.toDoList[index].status = "Pending";
   }
 
+  // to update changes to an existing todo
   updateToDo(toDoId) {
     if (this.newToDo.content == "") {
       // window.alert("todo content cannot be empty");
